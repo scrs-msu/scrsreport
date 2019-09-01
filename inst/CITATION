@@ -4,7 +4,7 @@ citEntry(entry = "Manual",
   title        = "SCRS report bookdown templates",
   author       = as.person("Tan Tran"),
   organization = "Statistical Consulting and Research Services at Montana State University",
-  address      = "Montana, USA"
+  address      = "Montana, USA",
   year         = "2019",
   url          = "http://www.montana.edu/statisticalconsulting/",
 
