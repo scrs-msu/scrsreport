@@ -1,0 +1,19 @@
+bookdown::gitbook:
+  css: style.css
+  template: template/cscrs.html
+  split_by: none
+  self_contained: true
+  config:
+    toc:
+      before: |
+        <li><a href="./">Most Important Study</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  template: template/template.tex
+  includes:
+    in_header: preamble.tex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

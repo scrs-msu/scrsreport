@@ -1,0 +1,16 @@
+citHeader("This package is supposed for Montana State University Statistical Consulting and Research Services internal use only, so it is never intended to be cited. However, if you insist:")
+
+citEntry(entry = "Manual",
+  title        = "SCRS report bookdown templates",
+  author       = as.person("Tan Tran"),
+  organization = "Statistical Consulting and Research Services at Montana State University",
+  address      = "Montana, USA"
+  year         = "2019",
+  url          = "http://www.montana.edu/statisticalconsulting/",
+
+  textVersion  =
+  paste("Tan Tran (2019).",
+        "SCRS report bookdown templates.",
+        "Statistical Consulting and Research Services - Montana State University.",
+        "Montana, USA. URL http://www.montana.edu/statisticalconsulting/.")
+)

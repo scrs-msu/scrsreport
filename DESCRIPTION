@@ -1,0 +1,22 @@
+Package: scrsreport
+Type: Package
+Title: SCRS Statistical Report Bookdown Project Template
+Version: 0.1.0
+Author: c(
+    person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre")),
+    person("Kenneth", "Flagg", role = "cbt"),
+    person("Jordan", "Schupbach", role = "cbt"),
+    person("Michael", "Lerch", role = "cbt"),
+    person(family = "MSU SCRS", role = "cph"),
+    )
+Maintainer: Tan Tran <tan.tranf@montana.edu>
+Description: This package adds a project template to RStudio. It uses bookdown,
+    together with current SCRS LaTeX and Markdown templates to facilitate a
+    professtional looking statistical report.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    bookdown (>= 0.8),
+    xfun (>= 0.6)
+RoxygenNote: 6.1.1
