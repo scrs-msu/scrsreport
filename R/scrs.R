@@ -7,7 +7,7 @@ scrs_bookdown <- function(path) {
     files <- list.files(resources, recursive = TRUE, include.dirs = TRUE)
     source <- file.path(resources, files)
     target <- file.path(path, files)
-    file.copy(source, target)
+    file.copy(source, target, recursive = TRUE)
     # add book_filename to _bookdown.yml and default to the base path name
     f <- file.path(path, "_bookdown.yml")
     x <- xfun::read_utf8(f)
