@@ -2,7 +2,7 @@
 title: Most Important Study
 
 author: "R.A. Fisher"
-client: "Erik Vance, Ph.D."
+client: "Client Name"
 director: "Mark Greenwood, Ph.D."
 secondary: Secondary Statistician
 titlepage: true
