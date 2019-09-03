@@ -3,6 +3,7 @@ bookdown::gitbook:
   template: template/cscrs.html
   split_by: none
   self_contained: true
+  pandoc_args: [ "--csl", "citation/apa.csl" ]
   config:
     toc:
       before: |
