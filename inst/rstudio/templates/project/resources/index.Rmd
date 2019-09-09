@@ -18,6 +18,18 @@ site: bookdown::bookdown_site
 documentclass: article
 ---
 
+```{r import, echo = FALSE}
+# Some other useful knitr options:
+# collapse: show a button to show/hide the source code
+# fig.retina: multiplicative factor for figures' resolution
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE,
+               comment = NA, size = 'footnotesize', width = 80,
+               warning = FALSE, show.signif.stars = FALSE)
+
+# Limit the displayed decimals at 2
+options(digits = 2)
+```
+
 # Prerequisites
 
 This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.

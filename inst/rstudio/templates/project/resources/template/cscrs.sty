@@ -151,6 +151,7 @@
 \topmargin=-5.5mm
 \oddsidemargin=8mm
 \evensidemargin=8mm
+\headheight=13.59999pt
 \setlength{\parskip}{0pt}
 
 % }}}
@@ -278,12 +279,21 @@
                     \end{flushright}
                 \end{minipage}
             \else % If assistant director is not defined...
-                \ifdefined\secondary % and secondary is defined, put secondary on left.
-                    \vskip 2.5em
-                    \emph{Contributions from:}\\
-                    \secondary
-                    \vskip 0.5em ~
-                \fi
+                \begin{minipage}[t]{0.4\textwidth}
+                    \begin{flushleft} \normalsize
+                    \ifdefined\secondary % and secondary is defined, put secondary on left
+                            \vskip 0.5em
+                            \emph{Contributions from:}\\
+                            \secondary
+                            \vskip 2.5em ~
+                    \fi
+                    \end{flushleft}
+                \end{minipage}
+                \begin{minipage}[t]{0.4\textwidth} % empty box on the right
+                    \begin{flushright} \normalsize
+                        \vskip 3em ~
+                    \end{flushright}
+                \end{minipage}
             \fi
 
 %            \vspace{.1in}
@@ -381,6 +391,9 @@
     \par
 \vskip 1.5em}
 \fi
+
+% Got this from default pandoc template
+\def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 % 2}}}
 
 % }}}
