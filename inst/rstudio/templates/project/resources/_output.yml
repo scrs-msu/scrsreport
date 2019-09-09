@@ -7,9 +7,6 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">Most Important Study</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: ["pdf", "epub"]
 bookdown::pdf_book:
   template: template/template.tex
   includes:
