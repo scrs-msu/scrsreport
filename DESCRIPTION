@@ -1,7 +1,7 @@
 Package: scrsreport
 Type: Package
 Title: SCRS Statistical Report Bookdown Project Template
-Version: 0.3
+Version: 1.0
 Author: c(
     person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre")),
     person("Kenneth", "Flagg", role = "cbt"),
