@@ -34,6 +34,8 @@ This package does not have any public function you can call or documentation you
 * In Project Type window, you will see *SCRS Report Project using bookdown* with the SCRS icon
 * Type the project name and the folder you want to create the project in
 
+![create project](img/createproject.png "Create Project") ![project type](img/projecttype.png "SCRS Project")
+
 A new project with a set of template files will be created. The three most important files will be already open in the Source pane:
 
 * **README.rd**: the README file where you give a short description of what project is about
@@ -52,7 +54,7 @@ A new project with a set of template files will be created. The three most impor
   * **spacing** (only applied to PDF version): the number of spaces between lines.
   * **bibliography**: name of the BibTeX file.
   * **biblio-style** (only applied to PDF version): citation style. Default is American Psychological Association (APA) style. 
-    * ''Note'': citation style for the gitbook HTML is defined in **_output.yml** (`pandoc_args`). You can download the citation style at [citation-style-language](https://github.com/citation-style-language/styles) project and change the path and file name in **_output.yml** accordingly.
+    * *Note*: citation style for the gitbook HTML is defined in **_output.yml** (`pandoc_args`). You can download the citation style at [citation-style-language](https://github.com/citation-style-language/styles) project and change the path and file name in **_output.yml** accordingly.
   * **link-citations**: whether to create a link at the citation to the corresponding bibliography item.
   * **colorlinks** (only applied to PDF version): whether to color URLs in the PDF version.
   * **site**: tell RStudio to treat the project as a bookdown project (changes in Build pane, Addins, etc.).
@@ -64,6 +66,7 @@ Why bookdown?
 Several generations of SCRS research assistants have developed and maintained several templates for a good-looking statistical report. The LaTeX style file was first created by Michael Lerch in 2015. In 2017, Kenneth Flagg and Jordan Schupbach created two sets of templates for R Markdown documents, one for PDF compilation and another for HTML compilation. Since then, Flagg and Tan Tran have refined and updated the templates to reflect changes in SCRS' support grant, SCRS logos, and the periods when SCRS had a co-director and an assistant director. As of September 2019, there were three separate report templates in the [Box Templates and Tools folder (internal link)](https://montana.app.box.com/folder/49004143798), making it tedious to use, train, and modify when needed. Also, reverting a report originally written for one format to another format is not simple because of the difference in the source file (LaTeX knitr vs. R Markdown). Moreover, since 2018, SCRS decided to offer an HTML version of draft reports to clients instead of PDF because of its many benefits, such as it can display visualizations without the limit of a paper, it is easier for the clients to re-use figures and R codes. However, R Markdown has many shortcomings and annoying bugs when writing professional documents (figure referencing, equations, citations, etc.).
 
 [bookdown](https://bookdown.org/) is an [open-source project](https://github.com/rstudio/bookdown) that is built on R, Markdown, and pandoc by (Yihui Xie)[https://yihui.name/]. It aims to facilitate writing professional documents with the ability to compile one source file to multiple output formats (PDF, HTML, EPUB, Word, etc.). The strengths of bookdown that suits the purpose of a SCRS HTML report include, but not limited to:
+
 * Write your report in simple Markdown markups.
 * Writing equations in LaTeX syntax with consistent and stable results.
 * Cross-references are implemented for equations, theorems, figures, tables, and sections.
