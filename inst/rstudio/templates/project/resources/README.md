@@ -1,1 +1,5 @@
-This is a minimal example of a statistical report based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/ for how to compile this example.
+* Report Description:
+* Client:
+* Statisticians:
+* History:
+  - 9/9/2019: created
