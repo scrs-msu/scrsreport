@@ -74,6 +74,13 @@ Several generations of SCRS research assistants have developed and maintained se
 * PDF version of the report can be created if needed.
 * HTML and PDF templates can be used to create a nice typesetting report.
 
+Known Bugs and Missing Features
+===============================
+
+* RStudio has a bug that prevents it to display the compiled gitbook correctly when a single HTML document is generated (projectname.html) instead of multiple HTML documents with index.html is the portal as bookdown is originally designed for. See [Issue #5371 in rstudio/rstudio](https://github.com/rstudio/rstudio/issues/5371). Currently, you have to view it in an external browser by clicking on "Open in Browser".
+* [Collapsible code chunk option](https://yihui.name/knitr/options/#text-results) in knitr that works in R Markdown does not work in bookdown. A workaround is to employ the answer in [this StackOverFlow question](https://stackoverflow.com/questions/45360998/code-folding-in-bookdown) or write your report in [R Notebook](https://bookdown.org/yihui/rmarkdown/notebook.html) instead. **This feature may be added to `scrsreport` in the next release.**
+
+
 Further Readings
 ================
   * [bookdown home page](https://bookdown.org/)
