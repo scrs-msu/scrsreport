@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/scrs-msu/scrsreport.svg)](https://travis-ci.org/scrs-msu/scrsreport)
  
-== What does `scrsreport` do? ==
+What does `scrsreport` do?
+==========================
 
 scrsreport adds a SCRS statistical report template to [RStudio](https://www.rstudio.com/) (>= 1.1.28) when 
 you click "New Project... -> New Directory". It creates a bookdown skeleton with
@@ -12,7 +13,8 @@ professional look, as well as utilizing the benefits of bookdown (which is an
 enhanced version of R Markdown) including cross-referecens (section, figures, 
 tables), citations, and math equations.
 
-== Installation ==
+Installation
+============
 
 You need `devtools` package to install this package directly from its GitHub repo.
 
@@ -22,7 +24,8 @@ devtools::install_github("scrs-msu/scrsreport")
 
 It will install all dependencies including [`bookdown`](https://github.com/rstudio/bookdown) and its dependencies. You may be asked to update your existing packages if needed.
 
-== Usage ==
+Usage
+=====
 
 This package does not have any public function you can call or documentation you can read. In fact, you hardly see any difference unless you do the following:
 
@@ -55,7 +58,8 @@ A new project with a set of template files will be created. The three most impor
   * **site**: tell RStudio to treat the project as a bookdown project (changes in Build pane, Addins, etc.).
   * **documentclass** (only applied to PDF version): treat the document as the LaTeX article class, then "Chapter" will not be used at the first level header.
   
-== Why bookdown? ==
+Why bookdown?
+=============
 
 Several generations of SCRS research assistants have developed and maintained several templates for a good-looking statistical report. The LaTeX style file was first created by Michael Lerch in 2015. In 2017, Kenneth Flagg and Jordan Schupbach created two sets of templates for R Markdown documents, one for PDF compilation and another for HTML compilation. Since then, Flagg and Tan Tran have refined and updated the templates to reflect changes in SCRS' support grant, SCRS logos, and the periods when SCRS had a co-director and an assistant director. As of September 2019, there were three separate report templates in the [Box Templates and Tools folder (internal link)](https://montana.app.box.com/folder/49004143798), making it tedious to use, train, and modify when needed. Also, reverting a report originally written for one format to another format is not simple because of the difference in the source file (LaTeX knitr vs. R Markdown). Moreover, since 2018, SCRS decided to offer an HTML version of draft reports to clients instead of PDF because of its many benefits, such as it can display visualizations without the limit of a paper, it is easier for the clients to re-use figures and R codes. However, R Markdown has many shortcomings and annoying bugs when writing professional documents (figure referencing, equations, citations, etc.).
 
@@ -67,8 +71,9 @@ Several generations of SCRS research assistants have developed and maintained se
 * PDF version of the report can be created if needed.
 * HTML and PDF templates can be used to create a nice typesetting report.
 
-== Further Readings ==
-  * [bookdown home page](https://bookdown.org/)]
+Further Readings
+================
+  * [bookdown home page](https://bookdown.org/)
   * [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
   * [The Wikipedia page on BibTeX](https://en.wikipedia.org/wiki/BibTeX)
   
