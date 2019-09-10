@@ -3,11 +3,11 @@ Type: Package
 Title: SCRS Statistical Report Bookdown Project Template
 Version: 1.0
 Author: c(
-    person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre")),
-    person("Kenneth", "Flagg", role = "cbt"),
-    person("Jordan", "Schupbach", role = "cbt"),
-    person("Michael", "Lerch", role = "cbt"),
-    person(family = "MSU SCRS", role = "cph"),
+    person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9881-6339")),
+    person("Kenneth", "Flagg", role = "aut"),
+    person("Jordan", "Schupbach", role = "aut"),
+    person("Michael", "Lerch", role = "aut"),
+    person(family = "MSU SCRS", role = c("cph", "fnd"))
     )
 Maintainer: Tan Tran <tan.tranf@montana.edu>
 Description: This package adds a project template to RStudio. It uses bookdown,
