@@ -1,4 +1,4 @@
 Title: SCRS Report Project using bookdown
 Binding: scrs_bookdown
-OpenFiles: README.md, _output.yml, index.Rmd
+OpenFiles: README.md, _bookdown.yml, _output.yml, index.Rmd
 Icon: scrs.png
