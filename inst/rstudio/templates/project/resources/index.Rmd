@@ -21,7 +21,6 @@ documentclass: article
 
 ```{r import, echo = FALSE}
 # Some other useful knitr options:
-# collapse: show a button to show/hide the source code
 # fig.retina: multiplicative factor for figures' resolution
 knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE,
                comment = NA, size = 'footnotesize', width = 80,
