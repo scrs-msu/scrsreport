@@ -2,15 +2,17 @@ citHeader("This package is supposed for Montana State University Statistical Con
 
 citEntry(entry = "Manual",
   title        = "SCRS report bookdown templates",
-  author       = as.person("Tan Tran"),
+  author       = c(
+    person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9881-6339")),
+    person("Kenneth", "Flagg", role = "aut"),
+    person("Jordan", "Schupbach", role = "aut"),
+    person("Michael", "Lerch", role = "aut"),
+    person(family = "MSU SCRS", role = c("cph", "fnd"))
+    ),
   organization = "Statistical Consulting and Research Services at Montana State University",
   address      = "Montana, USA",
   year         = "2019",
   url          = "http://www.montana.edu/statisticalconsulting/",
 
-  textVersion  =
-  paste("Tan Tran (2019).",
-        "SCRS report bookdown templates.",
-        "Statistical Consulting and Research Services - Montana State University.",
-        "Montana, USA. URL http://www.montana.edu/statisticalconsulting/.")
+  textVersion  = NULL
 )
