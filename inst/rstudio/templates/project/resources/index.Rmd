@@ -1,14 +1,15 @@
 --- 
-title: Most Important Study
+title: "Most Important Study"
 
 author: "R.A. Fisher"
 client: "Client Name"
 director: "Mark Greenwood, Ph.D."
-secondary: Secondary Statistician
-titlepage: true
-msucolor: true
-prelim: true
-twoside: true
+secondary: "Secondary Statistician"
+prelim: yes
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+titlepage: yes
+msucolor: yes
+twoside: yes
 spacing: 1
 bibliography: scrs-ref.bib
 biblio-style: apalike
