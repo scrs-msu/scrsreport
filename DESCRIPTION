@@ -9,7 +9,7 @@ Authors@R: c(
     person("Michael", "Lerch", role = "aut"),
     person(family = "MSU SCRS", role = c("cph", "fnd"))
     )
-Maintainer: Tan Tran <tan.tranf@montana.edu>
+Maintainer: Tan Tran <tan.tran@montana.edu>
 Description: This package adds a project template to RStudio. It uses bookdown,
     together with current SCRS LaTeX and Markdown templates to facilitate a
     professtional looking statistical report.
