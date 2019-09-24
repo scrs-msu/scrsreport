@@ -4,7 +4,7 @@ Title: SCRS Statistical Report Bookdown Project Template
 Version: 1.0
 Authors@R: c(
     person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9881-6339")),
-    person("Kenneth", "Flagg", role = "aut"),
+    person("Kenneth", "Flagg", role = "aut", , comment = c(ORCID = "0000-0003-3136-4766")),
     person("Jordan", "Schupbach", role = "aut"),
     person("Michael", "Lerch", role = "aut"),
     person(family = "MSU SCRS", role = c("cph", "fnd"))

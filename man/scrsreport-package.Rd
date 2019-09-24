@@ -15,7 +15,7 @@ professtional looking statistical report.
 
 Authors:
 \itemize{
-  \item Kenneth Flagg
+  \item Kenneth Flagg (0000-0003-3136-4766)
   \item Jordan Schupbach
   \item Michael Lerch
 }
