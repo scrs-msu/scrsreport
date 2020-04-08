@@ -1,22 +1,40 @@
 Package: scrsreport
 Type: Package
 Title: SCRS Statistical Report Bookdown Project Template
-Version: 1.0
+Version: 2.0
 Authors@R: c(
+    person("Greta","Linse", email="greta.linse@montana.edu", role = c("aut")),
     person("Tan", "Tran", email = "tan.tran@montana.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9881-6339")),
     person("Kenneth", "Flagg", role = "aut", , comment = c(ORCID = "0000-0003-3136-4766")),
     person("Jordan", "Schupbach", role = "aut"),
     person("Michael", "Lerch", role = "aut"),
     person(family = "MSU SCRS", role = c("cph", "fnd"))
     )
-Maintainer: Tan Tran <tan.tran@montana.edu>
+Maintainer: Greta Linse <greta.linse@montana.edu>
 Description: This package adds a project template to RStudio. It uses bookdown,
     together with current SCRS LaTeX and Markdown templates to facilitate a
     professtional looking statistical report.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: 
-    bookdown (>= 0.8),
-    xfun (>= 0.6)
+Imports: bookdown (>= 0.12), xfun (>= 0.8)
 RoxygenNote: 6.1.1
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: scrsreport
+RemoteUsername: scrs-msu
+RemoteRef: master
+RemoteSha: d0c0c66f8501a53405358bd3d01ff908c882c313
+GithubRepo: scrsreport
+GithubUsername: scrs-msu
+GithubRef: master
+GithubSHA1: d0c0c66f8501a53405358bd3d01ff908c882c313
+NeedsCompilation: no
+Packaged: 2020-01-15 18:20:14 UTC; greta
+Author: Greta Linse [aut]
+  Tan Tran [aut, cre] (<https://orcid.org/0000-0001-9881-6339>),
+  Kenneth Flagg [aut] (<https://orcid.org/0000-0003-3136-4766>),
+  Jordan Schupbach [aut],
+  Michael Lerch [aut],
+  MSU SCRS [cph, fnd]
+Built: R 3.6.1; ; 2020-01-15 18:20:15 UTC; windows

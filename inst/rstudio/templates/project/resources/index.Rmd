@@ -1,17 +1,36 @@
 --- 
-title: "Most Important Study"
+title: "Report Title"
+subtitle: "Prepared for: Client Name"
+author: 
+- Primary Statistician, Statistician
+- Secondary Statistician, Statistician
+- Director Name, Director
+authors: 
+  name: Primary Statistician  
+  affiliation: Statistical Consulting and Research Services  
 
-author: "R.A. Fisher"
-client: "Client Name"
-director: "Mark Greenwood, Ph.D."
-secondary: "Secondary Statistician"
+secondary: 
+  name: Secondary Statistician
+  affiliation: Statistical Consulting and Research Services
+director:  
+  name: Director Name
+  affiliation: Statistical Consulting and Research Services  
+
+abstract: |
+  **Author Note:**  
+  
+  This material is provided to communicate advice from SCRS statisticians based on our best understanding of your research needs. We encourage you to use this report in discussions with colleagues. Please do not publish any portion of this material without permission.  
+  
+  © Primary Statistician
+  
+  When you make use of our work for publications or presentations, please be sure to acknowledge the funding we receive from NIGMS using the following: “Research reported in this publication was supported by Institutional Development Awards (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under Awards P20GM103474, U54GM115371, 5P20GM104417, and 2U54GM104944-06. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.  
 prelim: yes
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "**`r format(Sys.time(), '%B %d, %Y')`**"
 titlepage: yes
 msucolor: yes
 twoside: yes
 spacing: 1
-bibliography: scrs-ref.bib
+bibliography: [scrs-ref.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
@@ -19,15 +38,36 @@ site: bookdown::bookdown_site
 documentclass: article
 ---
 
+
 ```{r import, echo = FALSE}
 # Some other useful knitr options:
 # fig.retina: multiplicative factor for figures' resolution
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE,
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE, message = FALSE,
                comment = NA, size = 'footnotesize', width = 80,
-               warning = FALSE, show.signif.stars = FALSE)
+               warning = FALSE, show.signif.stars = FALSE,
+               fig.height=5, fig.width=10)
+```
 
-# Limit the displayed decimals at 2
-options(digits = 2)
+```{r packages, include=FALSE}
+# automatically create a bib database for R packages, list used packages here
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'readr', 'readxl', 'dplyr', 'mosaic',
+  'nlme', 'yarrr', 'predictmeans','tibble', 'ggplot2', 'effects'), 'packages.bib')
+```
+
+```{r echo=F}
+# load all required packages first, edit this list as required.
+library(readr)
+library(readxl)
+library(dplyr)
+library(mosaic)
+library(knitr)
+library(yarrr)
+library(nlme)
+library(predictmeans)
+library(effects)
+library(tibble)
+suppressMessages(library(stringr))
 ```
 
 # Prerequisites
@@ -57,14 +97,29 @@ knitr::write_bib(c(
 
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(prerequisites).
 
+
+# Body of the report
+
+When writing your report it is important to use proper header levels. Each main section should start with one octothorpe ("#"). Sub-sections should start with two octothorpes ("##"), and so on. Make sure there is a space after each octothorpe and before the section title.
+
+## Including Figures and Tables created by R code
+
 Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+### Adding a Figure
+
+Make sure that figures have a `fig.cap` (figure caption). You can use either `out.width` for sizing or `fig.height` and `fig.width`. To get R to scale graphics appropriately I find that oversizing a figure works nicely. For example, even though letter paper is 8.5" x 11" I will set a figure that I want to use half the page to `fig.width=10` and `fig.height=6`.
 
 ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
 par(mar = c(4, 4, .1, .1))
 plot(pressure, type = 'b', pch = 19)
 ```
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). 
+
+### Adding a Table
+
+Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
 
 ```{r nice-tab, tidy=FALSE}
 knitr::kable(
@@ -73,4 +128,36 @@ knitr::kable(
 )
 ```
 
-You can write citations, too. For example, this is R [@R] and one the most referenced book is [@Ramsey2012].
+## Including graphics or figures not created by R
+
+Did you know the `yarr` package has several images in it? The images are there because they were used to create the palates in the package. Let's import one of those images. Since I don't know where the `yarrr` package is stored on your computer and the delimiter used by your operating system, I will use R functions to find the path and to create the file path.
+
+```{r fig.cap="Finding nemo image from yarr package.", out.width="80%"}
+knitr::include_graphics(file.path(path.package("yarrr"), "nemo.jpg"))
+```
+
+## Including citations
+
+You can write citations, too. For example, this is R [@R] and the most referenced book is [@Ramsey2012].
+
+If a package is used and cited it will be included in the references section. Edit the following list of packages below.
+
+# Packages used
+
+The R package `bookdown` [@R-bookdown] was used to create this report document using the `R` language [@R-base]. In addition, the following were packages used for the analysis and/or formatting of this document:
+
+- `knitr` [@R-knitr]
+- `rmarkdown` [@R-rmarkdown]
+- `readr` [@R-readr]
+- `readxl` [@R-readxl]
+- `tibble` [@R-tibble]
+- `dplyr` [@R-dplyr]
+- `mosaic` [@R-mosaic]
+- `nlme` [@R-nlme]
+- `yarrr` [@R-yarrr]
+- `ggplot2` [@R-ggplot2]
+- `effects` [@R-effects]
+- `predictmeans` [@R-predictmeans]
+
+# References
+

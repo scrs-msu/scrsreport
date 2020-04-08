@@ -1,6 +1,7 @@
 % cscrs theme
 \documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$$if(titlepage)$, titlepage$endif$$if(prelim)$, prelim$endif$$if(nologo)$, nologo$endif$$if(nocopyright)$, nocopyright$endif$$if(nofunding)$, nofunding$endif$$if(nouid)$, nouid$endif$$if(twoside)$, twoside$endif$]{article}
 \usepackage$if(msucolor)$[msucolor]$endif${template/cscrs}
+%\usepackage{template/cscrs}
 $if(header-includes)$
 $for(header-includes)$
 $header-includes$
@@ -15,23 +16,29 @@ $if(spacing)$
 \usepackage{setspace}
 $endif$
 
-$if(title)$
 \title{$title$}
-$endif$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
 
-$if(author)$
-\author{$author$}
-$endif$
-
-$if(client)$
-\def\client{$client$}
-$endif$
 $if(director)$
-\def\director{$director$}
+\def\director{$for(director)$$director.name$$endfor$}
 $endif$
 $if(secondary)$
-\def\secondary{$secondary$}
+\def\secondary{$for(secondary)$$secondary.name$$endfor$}
 $endif$
+
+$if(authors)$
+\author{$for(authors)$$authors.name$$endfor$, Lead Statistician \\ 
+        \secondary, Secondary Statistician \\ 
+        \director, Director}
+$endif$
+\newcommand{\firstauthor}{$for(authors)$$authors.name$$endfor$}
+
 \date{$if(date)$$date$$else$\today$endif$}
 
 \begin{document}
@@ -40,24 +47,17 @@ $if(title)$
 \maketitle
 $endif$
 
+
+
 $if(spacing)$
 \setstretch{$spacing$}
-$endif$
-
-$if(abstract)$
-\begin{abstract}
-$abstract$
-$if(keywords)$
-\begin{keywords}$keywords$\end{keywords}
-$endif$
-\end{abstract}
 $endif$
 
 $body$
 
 $if(bibliography)$
 \bibliographystyle{$biblio-style$}
-\bibliography{$bibliography$}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
 $endif$
 
 \end{document}

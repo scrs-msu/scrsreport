@@ -1,14 +1,13 @@
 <!--
   SCRS HTML report pandoc template
-  September 1, 2019
-  Created by Jordan Schupbach, Kenny Flagg, and Tan Tran
+  January 28, 2020
+  Created by Jordan Schupbach, Kenny Flagg, Tan Tran, and Greta Linse
   Based upon the SCRS LaTeX style by Michael Lerch and bookdown gitbook
-  Acknowledgement date: 9/1/2019
+  Acknowledgement date: 1/28/2020
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
@@ -91,11 +90,15 @@ $endfor$
 
 <body>
 
-
-
 <!--bookdown:title:start-->
 $if(title)$
 <div id="$idprefix$scrsheader" style="text-align:center">
+<figure>
+  <img 
+    src="figs/SCRSver-smaller.png" 
+    alt="Montana State University - Statistical Consulting and Research Services Logo"
+    >
+</figure>
 <a href="http://www.montana.edu/statisticalconsulting/" target="blank" style="color:#182957; font-family:Sans-serif">
 <p style="font-size:150%; font-family:Serif; font-weight: normal; text-align: center;">Montana State University<br/>
 Statistical Consulting and Research Services</p>
@@ -108,93 +111,24 @@ $if(subtitle)$
 <h2 class="subtitle"><em>$subtitle$</em></h2>
 $endif$
 $if(prelim)$<p style="color:#EA4335;">This document may be subject to further revision and is not a final report.</p>$endif$
-<table style="margin-left: 5%; margin-right: 5%; margin-bottom: 1em; font-weight: normal; width:90%; border:none;" cellpadding="0" cellspacing="0">
-<tr style="border:none;">
-  <th style="border:none; font-weight: normal; font-style: italic; text-align: left;">
-  Lead Statistician:
-  </th>
-  <th style="border:none; font-weight: normal; font-style: italic; text-align: right;">
-  $if(directors)$
-  Directors:
-  $else$
-  Director:
-  $endif$
-  </th>
-</tr>
-<tr style="border:none;">
-  <td style="border:none; text-align: left; background-color:white;">
-  $author$
-  </td>
-  <td style="border:none; text-align: right; background-color:white;">
-  $if(directors)$
-  $directors$
-  $else$
-  $director$
-  $endif$
-  </td>
-</tr>
-<!-- Make two columns showing secondary and asst director -->
-<tr style="border:none;">
-  <th style="border:none; font-weight: normal; font-style: italic; text-align: left;">
-  $if(secondary)$
-  Contributions from:
-  $endif$
-  </th>
-  <th style="border:none; font-weight: normal; font-style: italic; text-align: right;">
-  $if(asstdirector)$
-  Assistant Director:
-  $endif$
-  </th>
-</tr>
-<tr style="border:none;">
-  <td style="border:none; text-align: left; background-color:white;">
-  $if(secondary)$
-  $secondary$
-  $endif$
-  </td>
-  <td style="border:none; text-align: right; background-color:white;">
-  $if(asstdirector)$
-  $asstdirector$
-  $endif$
-  </td>
-</tr>
-</table>
 
-$if(nocopyright)$
-$else$
-<p style="font-style:italic; text-align: center;">
-This material is provided to communicate advice from SCRS statisticians based
-on our best understanding of your research needs.  We encourage you to use
-this report in discussions with colleagues.  Please do not publish any portion
-of this material without permission &copy; $author$
-</p>
+$authors.name$, Lead Statistician$if(authors.affiliation)$ ($authors.affiliation$)$endif$ <br>
+$if(secondary.name)$
+$secondary.name$, Secondary Statistician $if(secondary.affiliation)$ ($secondary.affiliation$)$endif$ <br>
+$endif$
+$if(director.name)$
+$director.name$, Director $if(director.affiliation)$ ($director.affiliation$)$endif$
 $endif$
 
-$if(nofunding)$
-$else$
-<p style="font-style:italic; text-align: center;">
-When you make use of our work for publications or presentations, please be
-sure to acknowledge the funding we receive from NIGMS using the following:
-"Research reported in this publication
-        was supported by Institutional Development Awards (IDeA) from the
-        National Institute of General Medical Sciences of the National
-        Institutes of Health under Awards P20GM103474, U54GM115371, 5P20GM104417,
-        and 2U54GM104944-06.  The content is solely the responsibility of the
-        authors and does not necessarily represent the official views of the
-        National Institutes of Health."
-</p>
-$endif$
 
-<p style="margin-left: 5%; margin-right: 5%; text-align: center;">
-Prepared for $client$
-</p>
+
+
 $if(date)$
 <p style="margin-left: 5%; margin-right: 5%; text-align: center;">
 $date$
 </p>
 $if(abstract)$
 <div class="abstract">
-<p class="abstract">$if(abstract-title)$$abstract-title$$else$Abstract$endif$</p>
 $abstract$
 </div>
 $endif$

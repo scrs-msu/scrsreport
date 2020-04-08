@@ -5,6 +5,7 @@
 % description:
 %    A style file for Montana State University CSCRS
 
+\ProvidesPackage{template/cscrs}
 % Packages {{{
 
 % \usepackage{utopia} % different fonts
@@ -62,10 +63,11 @@
 }
 
 % }}}
+
 % nouid option {{{
 % default uid command
 \newcommand{\uid}{
-   \includegraphics[width = 30mm]{figs/SCRSver.jpg}
+   \includegraphics[width = 30mm]{figs/SCRSver-smaller.png}
    \vskip 1.5em
 }
 
@@ -79,47 +81,10 @@
     \end{picture}
 }
 
-\DeclareOption{nologo}{\renewcommand{\putlogo}{}}
-% }}}
-% nocopyright option {{{
-% default funding text
-\newcommand{\copytext}{
-            \emph{This material is provided to communicate advice from SCRS
-                  statisticians based on our best understanding of your research
-                  needs.  We encourage you to use this report in discussions with
-                  colleagues.  Please do not publish any portion of this material
-                  without permission.} \\
-            {\textcopyright} \theauthor
-}
-\newcommand{\scrscopyright}{\copytext}
-
-% Nodfunding option blanks the funding text
-\DeclareOption{nocopyright}{\renewcommand{\scrscopyright}{}}
-
-\ProcessOptions\relax
 
 % }}}
-% nofunding option {{{
-% default funding text
-\newcommand{\fundingtext}{
-  \emph{When you make use of our work for publications or
-        presentations, please be sure to acknowledge the funding we receive
-        from NIGMS using the following: ``Research reported in this publication
-        was supported by Institutional Development Awards (IDeA) from the
-        National Institute of General Medical Sciences of the National
-        Institutes of Health under Awards P20GM103474, U54GM115371, 5P20GM104417,
-        and 2U54GM104944-06.  The content is solely the responsibility of the
-        authors and does not necessarily represent the official views of the
-        National Institutes of Health.''}
-}
-\newcommand{\scrsfunding}{\fundingtext}
 
-% Nodfunding option blanks the funding text
-\DeclareOption{nofunding}{\renewcommand{\scrsfunding}{}}
 
-\ProcessOptions\relax
-
-% }}}
 % prelim (draft) option {{{
 % default title page stamp (just takes up space but doesn't appear)
 \newcommand{\draftstamp}{
@@ -139,10 +104,44 @@
     }
     \renewcommand{\drafttext}{ (DRAFT)}
 }
+% }}}
+% nocopyright option {{{
+% default funding text
+\newcommand{\copytext}{\begin{center}
+            \emph{This material is provided to communicate advice from SCRS
+                  statisticians based on our best understanding of your research
+                  needs.  We encourage you to use this report in discussions with
+                  colleagues.  Please do not publish any portion of this material
+                  without permission.} \\
+            {\textcopyright} \firstauthor
+            \end{center}
+}
+\newcommand{\scrscopyright}{\copytext}
 
-\ProcessOptions\relax
+% Nodfunding option blanks the funding text
+\DeclareOption{nocopyright}{\renewcommand{\scrscopyright}{}}
+
 
 % }}}
+
+% nofunding option {{{
+% default funding text
+\newcommand{\fundingtext}{
+  \emph{When you make use of our work for publications or
+        presentations, please be sure to acknowledge the funding we receive
+        from NIGMS using the following: ``Research reported in this publication
+        was supported by Institutional Development Awards (IDeA) from the
+        National Institute of General Medical Sciences of the National
+        Institutes of Health under Awards P20GM103474, U54GM115371, 5P20GM104417,
+        and 2U54GM104944-06.  The content is solely the responsibility of the
+        authors and does not necessarily represent the official views of the
+        National Institutes of Health.''}
+}
+\newcommand{\scrsfunding}{\fundingtext}
+
+% Nodfunding option blanks the funding text
+\DeclareOption{nofunding}{\renewcommand{\scrsfunding}{}}
+
 % Page setup {{{
 
 \special{papersize=8.5in,11in}
@@ -155,6 +154,8 @@
 \setlength{\parskip}{0pt}
 
 % }}}
+
+
 % hyperref setup {{{
 
 \hypersetup{breaklinks=true,
@@ -165,31 +166,13 @@
             pdfborder={0 0 0}}
 
 % }}}
-% headers and footers / fancyhdr {{{
 
-\pagestyle{fancy}
 
-\renewcommand{\footrulewidth}{0.4pt}
-\renewcommand{\headrulewidth}{0.4pt}
 
-\fancyhead[LE]{\color{cscrsColor3}\thepage}
-\fancyhead[RE]{\color{cscrsColor3}\thetitle\drafttext}
-\fancyhead[LO]{\color{cscrsColor3}MSU SCRS\drafttext}
-\fancyhead[RO]{\color{cscrsColor3}\thepage}
-\fancyhead[CE]{}
-\fancyhead[CO]{}
-
-\fancyfoot[LE]{\setlength{\unitlength}{1mm}{\putlogo}}
-\fancyfoot[RE]{\color{cscrsColor3}Prepared on: \thedate}
-\fancyfoot[LO]{}
-\fancyfoot[RO]{}
-\fancyfoot[CE]{}
-\fancyfoot[CO]{\color{cscrsColor3}Prepared by: \theauthor}
-
-% }}}
 % headings {{{
 
-\renewcommand{\abstractname}{\color{cscrsColor1}Abstract}
+%\renewcommand{\abstractname}{\color{cscrsColor1}Abstract}
+\renewcommand{\abstract}{}
 \renewcommand{\figurename}{\color{cscrsColor1}Figure}
 \renewcommand{\tablename}{\color{cscrsColor1}Table}
 
@@ -199,8 +182,13 @@
 {#1}{#2}{#3}{#4}{#5}{\color{cscrsColor1}\raggedright #6}}
 
 % }}}
-% title {{{
 
+% title {{{
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+		\begin{center}\large#1\end{center}
+		\vskip{0.5em}}}%
 % titlepage  {{{2
 \if@titlepage
 \renewcommand{\maketitle}{\begin{titlepage}
@@ -224,95 +212,22 @@
       \vskip 1.5em
 
               {\color{cscrsColor1}\LARGE \bfseries \@title \drafttext \par}
+			  
             \vskip 1em
             \draftstamp
             \vskip 2em
 
-            % are director or directors defined?
-            \ifdefined\director
-              \def\directorors{Director}
-            \fi
-            \ifdefined\directors
-              \def\directorors{Directors}
-            \fi
-
-            \noindent
-            \ifdefined\directorors% If director is defined, put lead on left, director on right.
-                \begin{minipage}[t]{0.4\textwidth}
-                    \begin{flushleft} \normalsize
-                        \emph{Lead Statistician:}\\
-                        \@author
-                    \end{flushleft}
-                \end{minipage}
-                \begin{minipage}[t]{0.4\textwidth}
-                    \begin{flushright} \normalsize
-                        \emph{\directorors :}\\
-                        \ifdefined\director
-                          \director
-                        \else
-                          \directors
-                        \fi
-                    \end{flushright}
-                \end{minipage}
-            \else
-                \emph{Lead Statistician:}\\
                 \@author
-            \fi
-
-            \ifdefined\asstdirector % If assistant director is defined...
-                \begin{minipage}[t]{0.4\textwidth}
-                    \begin{flushleft} \normalsize
-                    \ifdefined\secondary % and secondary is defined, put secondary on left, and...
-                            \vskip 0.5em
-                            \emph{Contributions from:}\\
-                            \secondary
-                            \vskip 2.5em ~
-                    \fi
-                    \end{flushleft}
-                \end{minipage}
-                \begin{minipage}[t]{0.4\textwidth} % put assistant director on right.
-                    \begin{flushright} \normalsize
-                        \vskip 0.5em
-                        \emph{Assistant Director:}\\
-                        \asstdirector
-                        \vskip 2.5em ~
-                    \end{flushright}
-                \end{minipage}
-            \else % If assistant director is not defined...
-                \begin{minipage}[t]{0.4\textwidth}
-                    \begin{flushleft} \normalsize
-                    \ifdefined\secondary % and secondary is defined, put secondary on left
-                            \vskip 0.5em
-                            \emph{Contributions from:}\\
-                            \secondary
-                            \vskip 2.5em ~
-                    \fi
-                    \end{flushleft}
-                \end{minipage}
-                \begin{minipage}[t]{0.4\textwidth} % empty box on the right
-                    \begin{flushright} \normalsize
-                        \vskip 3em ~
-                    \end{flushright}
-                \end{minipage}
-            \fi
 
 %            \vspace{.1in}
             \vfill
 
-            \scrscopyright
-
-            \vspace{.1in}
-
-            \scrsfunding
-
-            \vfill
-            \ifdefined\client{\normalsize prepared for \client}\fi
-
-            \vskip 1em
-
             {\normalsize \@date \par} % Set date in \large size.
 
             \vfill
+            \scrscopyright
+            \vfill
+            \fundingtext
         \end{center}\par
         \@thanks
         \vfil\null
@@ -370,27 +285,25 @@
     \begin{center}
         \let \footnote \thanks
         {\color{cscrsColor1}\LARGE \bfseries \@title\drafttext \par}
+        {\color{cscrsColor3}\LARGE \bfseries \@subtitle \par}
         \draftstamp
         \vskip 0.5em
         {\large
             \lineskip .5em
-            \begin{tabular}[t]{c}
                 \@author
-        \end{tabular}\par}
-        \vskip 1em
+        \vskip .5em
         {\large \@date}
 
-        \vskip 3em
-
-        \scrscopyright
-
-        \vspace{.1in}
-
-        \scrsfunding
     \end{center}
     \par
-\vskip 1.5em}
+\vskip .5em}
 \fi
+
+\DeclareOption{nologo}{\renewcommand{\putlogo}{}}
+% }}}
+
+
+
 
 % Got this from default pandoc template
 \def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -398,3 +311,32 @@
 
 % }}}
 % vim: foldmethod=marker:
+
+% headers and footers / fancyhdr {{{
+
+\pagestyle{fancy}
+
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancyhead[LE]{\color{cscrsColor3}\thepage}
+\fancyhead[RE]{\color{cscrsColor3}\thetitle\drafttext}
+\fancyhead[LO]{\color{cscrsColor3}MSU SCRS\drafttext}
+\fancyhead[RO]{\color{cscrsColor3}\thepage}
+\fancyhead[CE]{}
+\fancyhead[CO]{}
+
+
+\fancyfoot[LE]{\setlength{\unitlength}{1mm}{\putlogo}}
+\fancyfoot[RE]{\color{cscrsColor3}Prepared on: \thedate}
+\fancyfoot[LO]{}
+\fancyfoot[RO]{}
+\fancyfoot[CE]{}
+\fancyfoot[CO]{\color{cscrsColor3}Prepared by: \firstauthor}
+
+
+% }}}
+
+
+\ProcessOptions\relax
+\endinput

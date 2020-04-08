@@ -13,4 +13,8 @@ bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   citation_package: natbib
+  latex_engine: pdflatex
   keep_tex: yes
+bookdown::word_document2:
+  toc: false
+  reference_docx: template/Word-Bookdown-Template.docx
