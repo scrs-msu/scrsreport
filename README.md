@@ -16,10 +16,10 @@ tables), citations, and math equations.
 Installation
 ============
 
-You need `devtools` package to install this package directly from its GitHub repo.
+You need `remotes` package to install this package directly from its GitHub repo.
 
 ```
-devtools::install_github("scrs-msu/scrsreport")
+remotes::install_github("scrs-msu/scrsreport")
 ```
 
 It will install all dependencies including [`bookdown`](https://github.com/rstudio/bookdown) and its dependencies. You may be asked to update your existing packages if needed.
